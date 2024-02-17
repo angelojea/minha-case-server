@@ -1,0 +1,22 @@
+{
+  "name": "minha-case-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m \"ok\" && git push",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angel Ojea <angel.ojea@avanade.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mercadopago": "^1.5.15",
+    "morgan": "^1.10.0",
+    "request": "^2.88.2",
+    "wpapi": "^1.2.2"
+  }
+}
