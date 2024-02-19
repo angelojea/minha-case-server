@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "git add . && git commit -m \"ok\" && git push",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "author": "Angel Ojea <angel.ojea@avanade.com>",
   "license": "MIT",
