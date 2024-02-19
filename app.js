@@ -4,13 +4,15 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const logger = require("morgan");
 const request = require("request");
+const WPAPI = require("wpapi");
 
-const wpUrl = "http://y53.eb2.myftpupload.com";
+const wpUrl = "https://wv4.ba0.myftpupload.com";
 const ajaxUrl = `${wpUrl}/wp-admin/admin-ajax.php`;
 const admUser = "admminhacase";
 const admPwd = "CodornA#1604";
-const mpToken =
-  "APP_USR-1781202667816793-060914-e165c691d475afc1529ce43af9179fbd-1125422651";
+const mercadoPagoAccessToken =
+  "TEST-1781202667816793-060914-a00a5202fa3fbe7c6aa153cec464f23e-1125422651";
+  // "APP_USR-1781202667816793-060914-e165c691d475afc1529ce43af9179fbd-1125422651";
 
 const app = express();
 
@@ -91,13 +93,13 @@ app.post("/sign-up", async (req, res) => {
 
   const { body } = req;
   const user = {
-    'text-2': body.firstname,
-    'text-3': body.lastname,
+    'name-1': `${body.firstname} ${body.lastname}`.trim(),
+    'text-1': body.email,
     'email-1': body.email,
     'password-1': body.pwd,
   };
 
-  const formId = "179";
+  const formId = "17";
   try {
     const nonce = await new Promise((res, rej) => {
       request.post(
@@ -194,7 +196,7 @@ app.post("/payment", async (req, res) => {
   try {
     const { body } = req;
     var mercadopago = require("mercadopago");
-    mercadopago.configurations.setAccessToken(mpToken);
+    mercadopago.configurations.setAccessToken(mercadoPagoAccessToken);
 
     var data = await mercadopago.payment.create(body);
     res.status(200).send(data);
